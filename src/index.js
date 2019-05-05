@@ -3,9 +3,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const utils = require('./helpers/utils');
+const initMongo = require('./helpers/connectMongo');
+const configEnv = require('./helpers/readConfig');
+const path = require('path');
+
 
 const app = express();
 
+require('dotenv')
+.config({
+    path: path.resolve(process.cwd(),'./src/environment/.env')
+});
 
 
 
@@ -54,5 +62,12 @@ app.get('/', (req, res,) => {
         title: 'Pet-me'
     })
 })
+
+
+configEnv.readEnvFile();
+
+initMongo.init('models/v1');
+
+
 
 module.exports = app;
