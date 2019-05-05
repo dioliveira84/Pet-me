@@ -1,6 +1,6 @@
 
 module.exports.renderMission =  (req, res, next) => {
 
-    res.send("Missão");
+    res.render('mission', { title:'Missão'});
  
  }

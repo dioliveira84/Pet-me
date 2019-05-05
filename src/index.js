@@ -2,9 +2,13 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const passport = require('passport');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const utils = require('./helpers/utils');
 const initMongo = require('./helpers/connectMongo');
 const configEnv = require('./helpers/readConfig');
+const hbs = require('hbs');
 const path = require('path');
 
 
@@ -25,8 +29,22 @@ app.use(bodyParser.urlencoded({
     limit: '50mb',
     extended: false
 }));
-// app.use(getHostOrigin);
 
+// config body-parser
+app.use(bodyParser.urlencoded({extended:true}))
+app.use(cookieParser());
+
+//config hbs
+//app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'}));
+app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/public'));
+hbs.registerPartials(__dirname + '/views/partials');
+
+//config session
+app.use(session({ secret: 'blah', name: 'id' }))
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // -- INICIO --
@@ -62,6 +80,37 @@ app.get('/', (req, res,) => {
         title: 'Pet-me'
     })
 })
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+  });
+  
+  // error handlers
+  
+  // development error handler
+  // will print stacktrace
+  if (app.get('env') === 'development') {
+    app.use(function(err, req, res, next) {
+      res.status(err.status || 500);
+      res.render('error', {
+        message: err.message,
+        error: err
+      });
+    });
+  }
+  
+  // production error handler
+  // no stacktraces leaked to user
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: {}
+    });
+  });
+  
 
 
 configEnv.readEnvFile();

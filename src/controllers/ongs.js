@@ -1,5 +1,5 @@
 module.exports.renderOngs =  (req, res, next) => {
 
-    res.send("Ongs");
+    res.render('ongs', { title:'Ongs'});
  
  }
