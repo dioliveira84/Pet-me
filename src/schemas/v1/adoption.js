@@ -6,32 +6,16 @@ let feedbackSchema = new mongoose.Schema({
         type: Date,
         default: Date
     },
-    usuario: {
+    id_user: {
         type: String,
         required: true,
         index: true
     },
-    senha: {
+    id_pet: {
         type: String,
         required: true,
-       
-    },
-    contato_phone: {
-        type: String,
-        required: true,
-        index: true
-    },
-    endereco: {
-        type: String,
-        required: true,
-        index: true
-    },
-    email: {
-        type: String,
-        required: true,
-        index: true
     }
     
-}, { collection: 'userLogin' });
+}, { collection: 'adoption' });
 
 module.exports.schema = feedbackSchema;
