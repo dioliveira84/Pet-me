@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let feedbackSchema = new mongoose.Schema({
+let userLogin = new mongoose.Schema({
     createdAt: {
         index: true,
         type: Date,
@@ -34,4 +34,4 @@ let feedbackSchema = new mongoose.Schema({
     
 }, { collection: 'userLogin' });
 
-module.exports.schema = feedbackSchema;
+module.exports.schema = userLogin;

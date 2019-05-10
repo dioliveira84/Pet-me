@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let feedbackSchema = new mongoose.Schema({
+let favotites = new mongoose.Schema({
     createdAt: {
         index: true,
         type: Date,
@@ -16,6 +16,6 @@ let feedbackSchema = new mongoose.Schema({
         required: true,
     }
     
-}, { collection: 'adoption' });
+}, { collection: 'favotites' });
 
-module.exports.schema = feedbackSchema;
+module.exports.schema = favotites;
