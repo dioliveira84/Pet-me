@@ -1,0 +1,87 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #666;
+}
+
+h1,
+body,
+html,
+main section {
+  margin: 0;
+}
+
+nav {
+  background-color: #ff473a;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #f2f2f2;
+}
+
+.btn-outline-success {
+  color: #f2f2f2;
+  border-color: #f2f2f2;
+}
+
+.form-inline button.btn.btn-outline-success:active,
+button.btn.btn-outline-success:hover {
+  background: blue;
+  box-shadow: yellow;
+}
+
+.session-01 {
+  width: 100%;
+  height: 300px;
+  background-color: #f2f2f2;
+  margin: 0px 0px 5px 0px;
+}
+
+.session-02 {
+  width: 100%;
+  height: 250px;
+  background-color: #f2f2f2;
+  margin: 0px 0px 5px 0px;
+}
+
+.session-03 {
+  width: 100%;
+  height: 150px;
+  background-color: #f2f2f2;
+}
+
+.columns {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	margin: 5px 0;
+}
+
+.column {
+	flex: 1;
+	border: 1px solid gray;
+	margin: 2px;
+	padding: 10px;
+	&:first-child { margin-left: 0; }
+	&:last-child { margin-right: 0; }	
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+/* No media query for `xs` since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+/* @media (min-width: 576px) { ... } */
+
+/* Medium devices (tablets, 768px and up) */
+/* @media (min-width: 768px) { ... } */
+
+/* Large devices (desktops, 992px and up) */
+/* @media (min-width: 992px) { ... } */
+
+/* Extra large devices (large desktops, 1200px and up) */
+/* @media (min-width: 1200px) { ... } */
