@@ -76,9 +76,7 @@ app.get('/api', (req, res, next) => {
 });
 
 app.get('/', (req, res,) => {
-    res.json({
-        title: 'Pet-me'
-    })
+    res.render('home')
 })
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
