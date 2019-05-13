@@ -30,8 +30,8 @@ let userLogin = new mongoose.Schema({
         type: String,
         required: true,
         index: true
-    }
-    
+    },
+    photo: String,
 }, { collection: 'userLogin' });
 
 module.exports.schema = userLogin;

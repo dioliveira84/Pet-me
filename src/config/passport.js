@@ -1,10 +1,10 @@
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-
-// Load User model
+var TwitterStrategy = require('passport-twitter').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 const userLogin = require('../models/v1/userLogin');
-
+var config = require('./configEmail');
 module.exports = function(passport) {
   passport.use(
     new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
@@ -38,4 +38,9 @@ module.exports = function(passport) {
       done(err, user);
     });
   });
+
+
+
+
+
 };

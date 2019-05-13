@@ -1,9 +1,10 @@
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const userLogin = require('../../models/v1/userLogin');
+const envEmail = require('../../services/emailServices');
 const bcryptSalt     = 10;
 const { forwardAuthenticated } = require('../../config/auth');
-
+const msgWelcome = require('../../config/configEmail')
 module.exports.createUser =   (req, res, next) => {
    
 
@@ -43,6 +44,15 @@ module.exports.createUser =   (req, res, next) => {
         })
         .then(() => {
           res.send("usário cadastrado");
+
+          envEmail.send(
+
+            email,
+            'Seja Bem Vindo',
+            msgWelcome.msgWelcome.replace('{0}',usuario)
+         
+                   )
+
         })
         .catch(error => {
           console.log(error);
