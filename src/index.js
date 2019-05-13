@@ -12,6 +12,8 @@ const initMongo = require('./helpers/connectMongo');
 const utils = require('./helpers/utils');
 const flash = require('connect-flash');
 
+// Passport Config
+require('./config/passport')(passport);
 
 require('dotenv').config({
   path: path.resolve(process.cwd(), './src/environment/.env'),

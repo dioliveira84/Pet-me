@@ -1,76 +1,57 @@
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const passport = require('passport');
-const userLogin = require('../../schemas/v1/userLogin');
+const userLogin = require('../../models/v1/userLogin');
+const bcryptSalt     = 10;
 const { forwardAuthenticated } = require('../../config/auth');
 
-module.exports.createUser =  (req, res, next) => {
+module.exports.createUser =   (req, res, next) => {
    
 
-   const { name, email, password, password2 } = req.body;
+  console.log("req.body",req.body);
+
+   const { usuario, password, phone,endereco,email} = req.body;
    let errors = [];
  
-   if (!name || !email || !password || !password2) {
-     errors.push({ msg: 'Please enter all fields' });
-   }
+  //  if (!usuario || !password || !email || !endereco || !phone) {
+  //    errors.push({ msg: 'Please enter all fields' });
+  //  }
  
-   if (password != password2) {
-     errors.push({ msg: 'Passwords do not match' });
-   }
- 
-   if (password.length < 6) {
-     errors.push({ msg: 'Password must be at least 6 characters' });
-   }
- 
-   if (errors.length > 0) {
-     res.render('register', {
-       errors,
-       name,
-       email,
-       password,
-       password2
-     });
-   } else {
-      userLogin.findOne({ email: email }).then(user => {
-       if (user) {
-         errors.push({ msg: 'Email already exists' });
-         res.render('register', {
-           errors,
-           name,
-           email,
-           password,
-           password2
-         });
-       } else {
-         const newUser = new User({
-           name,
-           email,
-           password
-         });
- 
-         bcrypt.genSalt(10, (err, salt) => {
-           bcrypt.hash(newUser.password, salt, (err, hash) => {
-             if (err) throw err;
-             newUser.password = hash;
-             newUser
-               .save()
-               .then(user => {
-                 req.flash(
-                   'success_msg',
-                   'You are now registered and can log in'
-                 );
-                 res.send('usuário cadastrado');
-               })
-               .catch(err => console.log(err));
-           });
-         });
-       }
-     });
-   }
-
-
-
-
- }
+  //  if (errors.length > 0) {
+  //    res.send( {
+  //      errors
+  //    });
+  //  } else {
+  
+    userLogin.findOne({ "email": email })
+    .then(user => {
+      if (user !== null) {
+          res.send({
+            errorMessage: "The username already exists!"
+          });
+          return;
+        }
+    
+        const salt     = bcrypt.genSaltSync(bcryptSalt);
+        const hashPass = bcrypt.hashSync(password, salt);
+    
+        userLogin.create({
+          usuario,
+          password: hashPass,
+          phone,
+          email,
+          endereco
+        })
+        .then(() => {
+          res.send("usário cadastrado");
+        })
+        .catch(error => {
+          console.log(error);
+        })
+    })
+    .catch(error => {
+      next(error);
+    })
+  }
 
  module.exports.listUser =  (req, res, next) => {
     res.send("Listar usuário");

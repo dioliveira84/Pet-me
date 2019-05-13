@@ -1,18 +1,18 @@
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 // Load User model
-const userLogin = require('../schemas/v1/userLogin');
+const userLogin = require('../models/v1/userLogin');
 
 module.exports = function(passport) {
   passport.use(
-    new LocalStrategy({ email: 'email' }, (email, password, done) => {
+    new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
       // Match user
       userLogin.findOne({
         email: email
-      }).then(data => {
-        if (!data) {
+      }).then(user => {
+        if (!user) {
           return done(null, false, { message: 'That email is not registered' });
         }
 

@@ -4,19 +4,19 @@ let userLogin = new mongoose.Schema({
     createdAt: {
         index: true,
         type: Date,
-        default: Date
+        default: Date.now
     },
     usuario: {
         type: String,
         required: true,
         index: true
     },
-    senha: {
+    password: {
         type: String,
         required: true,
        
     },
-    contato_phone: {
+    phone: {
         type: String,
         required: true,
         index: true
