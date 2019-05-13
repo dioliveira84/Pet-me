@@ -10,6 +10,10 @@ const morgan = require('morgan');
 const configEnv = require('./helpers/readConfig');
 const initMongo = require('./helpers/connectMongo');
 const utils = require('./helpers/utils');
+const flash = require('connect-flash');
+
+// Passport Config
+require('./config/passport')(passport);
 
 require('dotenv').config({
   path: path.resolve(process.cwd(), './src/environment/.env'),
@@ -38,6 +42,7 @@ app.use(
   }),
 );
 
+
 // config body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -50,10 +55,26 @@ app.use(express.static(`${__dirname}/public`));
 hbs.registerPartials(`${__dirname}/views/partials`);
 
 // config session
-app.use(session({ secret: 'blah', name: 'id' }));
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
+//connect flash
+app.use(flash());
+
+// Global variables
+app.use(function(req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+});
 // -- INICIO --
 // Mapeia rotas automatico dentro da pasta routes
 
