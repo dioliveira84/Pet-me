@@ -1,6 +1,6 @@
 
 module.exports.renderLogin =  (req, res, next) => {
 
-    res.send("login");
+    res.render('login', { title:'logar'});
  
  }
