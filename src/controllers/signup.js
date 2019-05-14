@@ -1,5 +1,5 @@
 module.exports.renderSignup =  (req, res, next) => {
 
-    res.send("Cadastrar");
+    res.render('signup', { title:'cadastrar'});
  
  }
