@@ -18,10 +18,10 @@ let userLogin = new mongoose.Schema({
     },
     phone: {
         type: String,
-        required: true,
+        required: false,
         index: true
     },
-    endereco: {
+    cidade: {
         type: String,
         required: true,
         index: true

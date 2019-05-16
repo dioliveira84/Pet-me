@@ -4,13 +4,15 @@ const userLogin = require('../../models/v1/userLogin');
 const envEmail = require('../../services/emailServices');
 const bcryptSalt     = 10;
 const { forwardAuthenticated } = require('../../config/auth');
-const msgWelcome = require('../../config/configEmail')
+const msgWelcome = require('../../config/configEmail');
+
+
 module.exports.createUser =   (req, res, next) => {
    
 
   console.log("req.body",req.body);
 
-   const { usuario, password, phone,endereco,email} = req.body;
+   const { usuario, password,cidade,email} = req.body;
    let errors = [];
  
   //  if (!usuario || !password || !email || !endereco || !phone) {
@@ -38,9 +40,8 @@ module.exports.createUser =   (req, res, next) => {
         userLogin.create({
           usuario,
           password: hashPass,
-          phone,
           email,
-          endereco
+          cidade
         })
         .then(() => {
           res.send("usário cadastrado");
