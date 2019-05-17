@@ -1,22 +1,31 @@
 const pet = require('../../models/v1/pet');
 
 module.exports.createPet = async (req, res) => {
-  const {
+
+  
+ const {
     originalname: name, size, key, location: url = '',
   } = req.file;
 
+ const {tipo,nome,raca,sexo,tamanho,idade,endereco} = req.body
+
   const post = await pet.create({
     name,
+    tipo,
     size,
     key,
-    url,
-  });
+    url
+
+  })
 
   res.json(post);
 };
 
 module.exports.listPet = (req, res, next) => {
-  res.send('Listar Pets');
+ const resultPet = pet.find();
+
+
+
 };
 module.exports.updatetPet = (req, res, next) => {
   res.send('Atualizar Pet');

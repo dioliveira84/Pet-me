@@ -11,7 +11,7 @@ const configEnv = require('./helpers/readConfig');
 const initMongo = require('./helpers/connectMongo');
 const utils = require('./helpers/utils');
 const flash = require('connect-flash');
-
+const pet = require('./models/v1/pet');
 // Passport Config
 require('./config/passport')(passport);
 
@@ -101,7 +101,10 @@ app.get('/api', (req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  res.render('home');
+  const resultPet = pet.find()
+  const user = req.user
+  console.log("user",user)
+  res.render('home',{resultPet,user});
 });
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

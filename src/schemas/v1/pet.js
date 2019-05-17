@@ -47,11 +47,6 @@ const pet = new mongoose.Schema(
       required: false,
       index: true,
     },
-    foto: {
-      type: String,
-      required: false,
-      index: true,
-    },
     name: {
       type: String,
     },

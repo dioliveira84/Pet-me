@@ -1,6 +1,6 @@
 
 module.exports.renderLogin =  (req, res, next) => {
-
-    res.render('login', { title:'logar'});
+    const user = req.user
+    res.render('login', { title:'logar',user});
  
  }
