@@ -50,9 +50,12 @@ button.btn.btn-outline-success:hover {
 }
 
 .session-03 {
+  display: flex;
+  justify-items: baseline;
   width: 100%;
   height: 150px;
   background-color: #f2f2f2;
+  flex-wrap: nowrap;
 }
 
 .columns {
