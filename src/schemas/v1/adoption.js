@@ -4,7 +4,7 @@ let adoption = new mongoose.Schema({
     createdAt: {
         index: true,
         type: Date,
-        default: Date
+        default: Date.now
     },
     id_user: {
         type: String,

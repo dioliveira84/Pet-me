@@ -44,15 +44,9 @@ module.exports.createUser =   (req, res, next) => {
           cidade
         })
         .then(() => {
-          res.send("usário cadastrado");
-
-          envEmail.send(
-
-            email,
-            'Seja Bem Vindo',
-            msgWelcome.msgWelcome.replace('{0}',usuario)
-         
-                   )
+          
+          res.redirect("/login");
+          envEmail.send(email,'Seja Bem Vindo',msgWelcome.msgWelcome.replace('{0}',usuario))
 
         })
         .catch(error => {

@@ -16,7 +16,9 @@
               <input type="text" name="usuario" class="form-control mb-2" placeholder="Nome" required autofocus>
               <input type="text" name="email" class="form-control mb-2" placeholder="Email" required>
               <br>
-              <input type="text" name="cidade" class="form-control mb-2" placeholder="Cidade" required autofocus>
+              <select name="cidade" id="cidade" class="form-control mb-2" placeholder="Cidade"  required autofocus>
+               <option>Selecione uma Cidade</option>
+              </select>
               <input type="password" name="password" class="form-control mb-2" placeholder="Senha" required>
               <button class="btn btn-lg btn-primary btn-block mb-1" type="submit">Cadastrar</button>
               
@@ -29,3 +31,8 @@
   </div>
 
 </div>
+  <script src="/scripts/estados.js"></script>
+
+  <script>
+   getStates()
+  </script>
