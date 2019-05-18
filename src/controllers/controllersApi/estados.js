@@ -2,6 +2,7 @@ const states = require('../../models/v1/estados');
 
 module.exports.createEstados = async (req, res) => {
 
+
  let estados = [];
      estados =  req.body.estados;
      estados.forEach(element => { states.create(element)});

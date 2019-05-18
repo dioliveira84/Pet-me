@@ -32,6 +32,8 @@ let userLogin = new mongoose.Schema({
         index: true
     },
     photo: String,
+    resetPasswordToken: String,
+    resetPasswordExpires: Date
 }, { collection: 'userLogin' });
 
 module.exports.schema = userLogin;
