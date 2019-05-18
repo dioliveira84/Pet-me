@@ -12,5 +12,5 @@ router.route('/create').post(configAuth.ensureAuthenticated, multer(multerConfig
 router.route('/list').get(controller.listPet);
 router.route('/update').post(controller.updatetPet);
 router.route('/delete/:id').post(controller.deletetPet);
-
+router.route('/massivo').post(controller.massivo);
 module.exports = router;

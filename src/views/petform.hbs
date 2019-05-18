@@ -3,7 +3,7 @@
     <br>
     <h1>Cadastro de Pet</h1>
     <br>
-    <form class="needs-validation" novalidate>
+    <form action="/api/v1/pet/create" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
       <fieldset class="form-group">
         <div class="row">
           <legend class="col-form-label col-sm-2 pt-0">Tipo</legend>
@@ -30,28 +30,37 @@
         </div>
       </fieldset>
       <div class="form-row">
-        <div class="form-group col-md-6">
+
+          <div class="form-group col-md-6">
+          <label for="inputEmail4">Nome</label>
+          <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" required>
+          <div class="form-group">
+          
+            <div class="invalid-feedback">Por favor, informe uma raça válida</div>
+          </div>
+
+        </div>
+        <div class="form-group col-md-3">
           <label for="inputEmail4">Raça</label>
 
           <div class="form-group">
-            <select class="custom-select" required>
+            <select class="custom-select" name="raca" id="raca" required>
               <option value="">Abra este menu select</option>
-              <option value="1">Um</option>
-              <option value="2">Dois</option>
-              <option value="3">Três</option>
+               <option value="Labrador">Labrador</option>
             </select>
             <div class="invalid-feedback">Por favor, informe uma raça válida</div>
           </div>
 
         </div>
-        <div class="form-group col-md-6">
+
+        <div class="form-group col-md-3">
           <label for="inputPassword4">Sexo</label>
 
           <div class="form-group">
-            <select class="custom-select" required>
+            <select class="custom-select" name="sexo" id="sexo" required>
               <option value="">Abra este menu select</option>
-              <option value="1">Macho</option>
-              <option value="2">Fêmea</option>
+              <option value="M">Macho</option>
+              <option value="F">Femea</option>
             </select>
             <div class="invalid-feedback">Por favor, informe um sexo válido.</div>
           </div>
@@ -62,11 +71,11 @@
         <div class="form-group col-md-6">
           <label for="inputEmail4">Tamanho</label>
           <div class="form-group">
-            <select class="custom-select" required>
+            <select class="custom-select" name="tamanho" id="tamanho" required>
               <option value="">Abra este menu select</option>
-              <option value="1">Pequeno</option>
-              <option value="2">Médio</option>
-              <option value="3">Grande</option>
+              <option value="Pequeno">Pequeno</option>
+              <option value="Médio">Médio</option>
+              <option value="Grande">Grande</option>
             </select>
             <div class="invalid-feedback">Por favor, informe um tamanho válido.</div>
           </div>
@@ -75,12 +84,8 @@
         <div class="form-group col-md-6">
           <label for="inputPassword4">Idade</label>
           <div class="form-group">
-            <select class="custom-select" required>
-              <option value="">Abra este menu select</option>
-              <option value="1">Um</option>
-              <option value="2">Dois</option>
-              <option value="3">Três</option>
-            </select>
+            <input type="number" class="form-control" name="idade" id="idade" required>
+          
             <div class="invalid-feedback">Por favor, informe uma idade válida.</div>
           </div>
         </div>
@@ -88,21 +93,22 @@
       <div class="form-row">
         <div class="col-md-6 mb-3">
           <label for="validationCustom03">Cidade</label>
-          <input type="text" class="form-control" id="validationCustom03" placeholder="Cidade" required>
+          <input type="text" name="cidade" class="form-control" id="cidade" placeholder="Cidade" required>
           <div class="invalid-feedback">
             Por favor, informe uma cidade válida.
           </div>
         </div>
         <div class="col-md-3 mb-3">
           <label for="validationCustom04">Estado</label>
-          <input type="text" class="form-control" id="validationCustom04" placeholder="Estado" required>
+          <input type="text" name="estado" class="form-control" id="estado" placeholder="Estado" required>
+          <input type="hidden" name="rua" class="form-control" id="rua" placeholder="Estado" required>
           <div class="invalid-feedback">
             Por favor, informe um estado válido.
           </div>
         </div>
         <div class="col-md-3 mb-3">
           <label for="validationCustom05">CEP</label>
-          <input type="text" class="form-control" id="validationCustom05" placeholder="CEP" required>
+          <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP" onblur="getCep(this);" required>
           <div class="invalid-feedback">
             Por favor, informe um CEP válido.
           </div>
@@ -119,6 +125,7 @@
     <script>
       // Exemplo de JavaScript inicial para desativar envios de formulário, se houver campos inválidos.
       (function () {
+
         'use strict';
         window.addEventListener('load', function () {
           // Pega todos os formulários que nós queremos aplicar estilos de validação Bootstrap personalizados.
@@ -136,5 +143,7 @@
         }, false);
       })();
     </script>
+   
   </section>
-</div>
+</div>  
+ <script src="/scripts/viaCep.js"></script>

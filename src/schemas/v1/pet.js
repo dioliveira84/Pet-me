@@ -42,7 +42,22 @@ const pet = new mongoose.Schema(
       required: false,
       index: true,
     },
-    endereco: {
+    rua: {
+      type: String,
+      required: false,
+      index: true,
+    },
+    estado: {
+      type: String,
+      required: false,
+      index: true,
+    },
+    cidade: {
+      type: String,
+      required: false,
+      index: true,
+    },
+    cep: {
       type: String,
       required: false,
       index: true,
