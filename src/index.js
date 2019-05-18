@@ -101,10 +101,11 @@ app.get('/api', (req, res, next) => {
   });
 });
 
-app.get('/', (req, res) => {
-  const resultPet = pet.find()
+app.get('/', async (req, res) => {
+  const resultPet = await pet.find({})
   const user = req.user
-  console.log("user",user)
+ 
+  console.log(resultPet)
   res.render('home',{resultPet,user});
 });
 // catch 404 and forward to error handler

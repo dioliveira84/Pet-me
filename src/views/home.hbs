@@ -86,8 +86,11 @@
   <hr class="featurette-divider">
 
   <section class="Session-03">
-    <div class="row">
-      {{> petcard}}
+    <div class="row" >
+     {{#each resultPet}}
+      {{>petcard}}
+      <br>
+    {{/each}}
     </div>
   </section>
 
