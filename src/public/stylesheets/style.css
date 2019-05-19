@@ -71,7 +71,14 @@ button.btn.btn-outline-success:hover {
 	justify-content: center;
 	margin: 5px;
 }
-
+.center-notfound{
+   display: flex;
+   align-items: center;
+}
+.error-template{
+  margin-top:-400px;
+  margin-left:400px;
+}
 /* Extra small devices (portrait phones, less than 576px) */
 /* No media query for `xs` since this is the default in Bootstrap */
 

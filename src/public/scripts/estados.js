@@ -10,7 +10,7 @@ function getStates() {
       dados.forEach(element => {
         let option = document.createElement("option");
         option.text = element.Capital;
-        option.option = element.UF;
+        option.value = element.UF;
         x.add(option);
         
       });

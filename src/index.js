@@ -102,11 +102,24 @@ app.get('/api', (req, res, next) => {
 });
 
 app.get('/', async (req, res) => {
-  const resultPet = await pet.find({})
-  const user = req.user
- 
-  console.log(resultPet)
-  res.render('home',{resultPet,user});
+  const user = req.user;
+  let resultPet = null;
+  resultPet = await pet.find({})
+  res.render('home',{title:'Home',resultPet,user});
+});
+
+app.post('/', async (req, res) => {
+  const ufPet= req.body.pet;
+  const user = req.user;
+  let resultPet = null;
+  if(ufPet){
+     resultPet = await pet.find({"estado":ufPet})
+  }else{
+    resultPet = await pet.find({})
+
+  }
+
+  res.render('home',{title:'Home',resultPet,user});
 });
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -122,7 +135,7 @@ app.get('/', (req, res) => {
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found');
-  console.log(err);
+  res.render('error');
   err.status = 404;
   next(err);
 });
@@ -134,7 +147,7 @@ app.use((req, res, next) => {
 if (app.get('env') === 'development') {
   app.use((err, req, res, next) => {
     res.status(err.status || 500);
-    res.send({
+    res.render('error',{
       message: err.message,
       error: err,
     });
@@ -143,7 +156,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
-  res.send({
+  res.render('error',{
     message: err.message,
     error: {},
   });

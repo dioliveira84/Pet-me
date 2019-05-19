@@ -66,7 +66,12 @@ module.exports.resetPassword =  (req, res, next) => {
       ], function(err) {
         if (err) return next(err);
         res.redirect('/forgot');
-      });
+      })
+
+      const sendEmailToScreen  = req.body.email.split('@');
+      const resultSplitEmail = `${sendEmailToScreen[0][0]}${sendEmailToScreen[0][1]}**********@${sendEmailToScreen[1]}`
+
+      res.render('sendEmail',{resultSplitEmail});
  
  }
 
