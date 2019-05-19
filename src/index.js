@@ -103,7 +103,6 @@ app.get('/api', (req, res, next) => {
 
 app.get('/', async (req, res) => {
   const user = req.user;
-  let resultPet = null;
   resultPet = await pet.find({})
   res.render('home',{title:'Home',resultPet,user});
 });

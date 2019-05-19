@@ -1,6 +1,7 @@
 
 module.exports.renderLogin =  (req, res, next) => {
     const user = req.user
-    res.render('login', { title:'logar',user});
+    const error   = res.locals.error;
+    res.render('login', { title:'logar',user,error});
  
  }

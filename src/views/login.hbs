@@ -15,6 +15,17 @@
             <form action="/api/v1/login/login" method="POST" class="form-signin">
               <input type="text" name="email" class="form-control mb-2" placeholder="Endereço de email" required autofocus>
               <input type="password" name="password" class="form-control mb-2" placeholder="Senha" required>
+
+              {{#if error}}
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <strong>Erro:</strong> E-mail ou senha inválidos!
+            </div>
+             {{/if}}
+
+
               <button class="btn btn-lg btn-primary btn-block mb-1" type="submit">Logar</button>
          
               <a href="/forgot" class="float-right">Esqueceu sua senha?</a>
