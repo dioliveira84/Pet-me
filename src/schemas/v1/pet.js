@@ -13,6 +13,11 @@ const pet = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
+    id_user: {
+      type: String,
+      required: false,
+      index: true,
+    },
     tipo: {
       type: String,
       required: false,

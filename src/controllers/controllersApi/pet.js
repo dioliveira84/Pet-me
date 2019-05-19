@@ -1,8 +1,9 @@
 const pet = require('../../models/v1/pet');
-const cachorro = require('../../models/v1/cats');
+const cats = require('../../models/v1/cats');
+const dogss = require('../../models/v1/dogs');
 module.exports.createPet = async (req, res) => {
 
-  console.log(req.file);
+  const id = req.user.id;
  const {
     originalname: name, size, key, location: url = '',
   } = req.file;
@@ -23,18 +24,27 @@ module.exports.createPet = async (req, res) => {
     rua,
     estado,
     cidade,
-    cep
+    cep,
+    id_user: id
 
   })
 
   res.redirect('/pet');
 };
 
-module.exports.listPet = (req, res, next) => {
- const resultPet = pet.find();
+module.exports.listPet = async (req, res, next) => {
+  const filterPet = req.query.pet;
+
+  console.log(filterPet)
 
 
-
+  if (filterPet=="dog"){
+    const resultPet = await dogss.find({});
+    res.send(resultPet);
+  }else{
+    const resultPet = await cats.find({});
+    res.send(resultPet);
+  }
 };
 module.exports.updatetPet = (req, res, next) => {
   res.send('Atualizar Pet');

@@ -10,9 +10,14 @@
             <br>
             <div class="form-group">
               <label for="exampleInputEmail1">Onde você está?</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              <form action="" method="GET">
+              <select  class="form-control" id="cidade" aria-describedby="emailHelp"
                 placeholder="Entre sua cidade">
+              <option>Selecione uma cidade</option>
+                
+                </select>
             </div>
+            <!--
             <label for="exampleInputEmail1">Escolher seu pet</label>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -38,8 +43,9 @@
               </div>
               <input type="text" class="form-control" aria-label="Text input with checkbox">
             </div>
-            <br>
-            <button type="button" class="btn btn-secondary btn-lg btn-block">Encontrar meu PET</button>
+            <br> -->
+            <button type="submit" class="btn btn-secondary btn-lg btn-block">Encontrar meu PET</button>
+            </form>
           </div>
         </div>
         <div class="col-md-1"></div>
@@ -87,10 +93,14 @@
 
   <section class="Session-03">
 
+     <div class="listPets">
+
      {{#each resultPet}}
+
       {{>petcard}}
   
     {{/each}}
+     </div>
     
   </section>
 
@@ -103,8 +113,8 @@
         <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator,
           etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
         <p>
-          <a href="#" class="btn btn-primary my-2">Logar</a>
-          <a href="#" class="btn btn-secondary my-2">Cadastrar</a>
+          <a href="/login" class="btn btn-primary my-2">Logar</a>
+          <a href="/signup" class="btn btn-secondary my-2">Cadastrar</a>
         </p>
       </div>
     </section>
@@ -164,3 +174,8 @@
 
 
 </div>
+  <script src="/scripts/estados.js"></script>
+
+  <script>
+   getStates()
+  </script>
