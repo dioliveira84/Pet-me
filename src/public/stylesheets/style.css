@@ -6,7 +6,8 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  color: #666;
+  color: #292b2c;
+  background-color: #eceeef;
 }
 
 h1,
@@ -14,25 +15,6 @@ body,
 html,
 main section {
   margin: 0;
-}
-
-nav {
-  background-color: #ff473a;
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: #f2f2f2;
-}
-
-.btn-outline-success {
-  color: #f2f2f2;
-  border-color: #f2f2f2;
-}
-
-.form-inline button.btn.btn-outline-success:active,
-button.btn.btn-outline-success:hover {
-  background: blue;
-  box-shadow: yellow;
 }
 
 .session-01 {
@@ -50,46 +32,42 @@ button.btn.btn-outline-success:hover {
 }
 
 .session-03 {
-
   width: 100%;
   height: 150px;
   background-color: #f2f2f2;
-
 }
 
-.columns {
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
-	margin: 5px 0;
-}
-
-
-.listPets{
+.listPets {
   display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
-	margin: 5px;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 5px;
 }
-.center-notfound{
-   display: flex;
-   align-items: center;
+
+.center-notfound {
+  display: flex;
+  align-items: center;
 }
-.error-template{
-  margin-top:-400px;
-  margin-left:400px;
+
+.error-template {
+  margin-top: -400px;
+  margin-left: 400px;
 }
-/* Extra small devices (portrait phones, less than 576px) */
-/* No media query for `xs` since this is the default in Bootstrap */
 
-/* Small devices (landscape phones, 576px and up) */
-/* @media (min-width: 576px) { ... } */
+.featurette-heading {
+  font-size: 4.5rem;
+  font-weight: 300;
+  line-height: 1.1;
+}
 
-/* Medium devices (tablets, 768px and up) */
-/* @media (min-width: 768px) { ... } */
+.form-control{
+  width: 50%;
+}
 
-/* Large devices (desktops, 992px and up) */
-/* @media (min-width: 992px) { ... } */
+.jumbotron {
+  margin-bottom: 0px;
+}
 
-/* Extra large devices (large desktops, 1200px and up) */
-/* @media (min-width: 1200px) { ... } */
+.help {
+  background: white;
+}
