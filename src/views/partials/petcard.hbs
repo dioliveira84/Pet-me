@@ -2,11 +2,11 @@
   <img class="card-img-top" src="{{this.url}}" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">Nome: {{this.nome}}</h5>
-    <p class="card-text">{{this.user.email}}</p>
-    <a href="#" class="btn btn-primary">Detalhes</a>
-    {{#if this.user}}
-     <a href="#" class="btn btn-primary">Adotar</a>
-    {{else}}
-    {{/if}}
+    <form action="/details" method="POST">
+
+    <input type="text" name="id"  value="{{this.id}}">
+    <button type="submit"  class="btn btn-primary">Detalhes</button>
+
+    </form>
   </div>
 </div>
