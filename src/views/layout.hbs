@@ -16,6 +16,33 @@
   <style>
     @import url(https://fonts.googleapis.com/css?family=Open+Sans);
   </style>
+
+  <style>
+  
+  h6 {
+    max-width: 480px;
+    text-align: center;
+    margin: 60px auto;
+    color: black;
+  }
+
+  h6::after {
+    content: '|';
+    opacity: 1;
+    margin-left: 5px;
+    display: inline-block;
+    animation: blink .7s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+</style>
 </head>
 
 <body>

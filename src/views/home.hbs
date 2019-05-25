@@ -1,3 +1,6 @@
+
+
+
 <div class="container">
   <section class="Session-01">
     <br>
@@ -17,7 +20,7 @@
                 <div class="form-group">
                   <br>
                   <label for="exampleInputEmail1">Onde você está?</label>
-                  <form action="" method="POST">
+                  <form action="/#result" method="POST">
                     <select name="pet" class="form-control" id="cidade" aria-describedby="emailHelp"
                       placeholder="Entre sua cidade">
                       <option>Selecione uma cidade</option>
@@ -42,28 +45,7 @@
                 </div>
               </div>
             </div>
-            <!--
-            <label for="exampleInputEmail1">Escolher seu pet</label>
-
-            <div class="form-check">
-            <input name="dog" class="form-check-input" type="checkbox" value="Cachorro" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-            Cachorro
-            </label>
-            </div>
-
-            <div class="form-check">
-            <input name="cat" class="form-check-input" type="checkbox" value="Gato" id="defaultCheck2" >
-            <label class="form-check-label" for="defaultCheck2">
-            Gato
-            </label>
-            </div> 
-            <br> 
-            <button type="submit" class="btn btn-secondary btn-lg btn-block">Encontrar meu PET</button>
-
-            <br> -->
-            {{!-- <button type="submit" class="btn btn-primary btn-lg">Encontrar meu PET »</button> --}}
-
+  
             </form>
           </div>
         </div>
@@ -110,10 +92,12 @@
 
   <hr class="featurette-divider">
 
-  <section class="Session-03">
+ <section id="result" class="Session-03">
+
 
     <div class="listPets">
-
+<h1 class="jumbotron-heading">Resultado de sua pesquisa!</h1>
+<br>
       {{#each resultPet}}
 
       {{>petcard}}
@@ -202,4 +186,15 @@
 
 <script>
   getStates()
+  
+  function typeWriter(elemento) {
+    const textoArray = elemento.innerHTML.split('');
+    elemento.innerHTML = '';
+    textoArray.forEach((letra, i) => {
+      setTimeout(() => elemento.innerHTML += letra, 75 * i);
+    });
+  }
+  const titulo = document.querySelector('h6');
+  typeWriter(titulo);
+
 </script>
