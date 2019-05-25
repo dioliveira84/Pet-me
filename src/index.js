@@ -103,18 +103,65 @@ app.get('/api', (req, res, next) => {
 
 app.get('/', async (req, res) => {
   const user = req.user;
+  const usuario = req.user ? await user.usuario.charAt(0).toUpperCase()+ user.usuario.substring(1,user.usuario.length):'';
   resultPet = await pet.find({})
-  res.render('home',{title:'Home',resultPet,user});
+
+  res.render('home',{title:'Home',resultPet,user,usuario});
 });
 
 app.post('/', async (req, res) => {
-  const ufPet= req.body.pet;
+  const { dog,cat} = req.body;
+  const ufPet = req.body.pet;
   const user = req.user;
   let resultPet = null;
-  if(ufPet){
-     resultPet = await pet.find({"estado":ufPet})
+  let filter = null;
+
+
+  if(ufPet && ufPet !=="Selecione uma cidade" ){
+
+    if (dog && !cat){
+    
+      filter = {"estado":ufPet,$and: [ { "tipo":dog}]}
+     
+   }else if(cat && !dog){
+ 
+     filter = {"estado":ufPet,$and: [ { "tipo":cat}]}
+ 
+   }else if(dog && cat){
+ 
+     filter = {"estado":ufPet,$and: [ { "tipo":dog},{ "tipo":cat}]}
+ 
+   }else if(!dog && !cat && ufPet){
+ 
+     filter = {"estado":ufPet}
+   }else{
+ 
+     filter = {}
+   }
+    
+     resultPet = await pet.find(filter);
+
   }else{
-    resultPet = await pet.find({})
+
+    if (dog && !cat){
+    
+      filter = {$and: [ { "tipo":dog}]}
+     
+   }else if(cat && !dog){
+ 
+     filter = {$and: [ { "tipo":cat}]}
+ 
+   }else if(dog && cat){
+ 
+     console.log("aqui")
+     filter = {},{ $and: [ { "tipo":dog},{ "tipo":cat}]}
+ 
+   }else{
+ 
+     filter = {}
+   }
+
+    resultPet = await pet.find(filter)
 
   }
 

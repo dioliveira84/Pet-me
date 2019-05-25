@@ -1,23 +1,31 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <h1 class="my-4">Page Heading
-        <small>Secondary Text</small>
-      </h1>
+ 
       <div class="card mb-4">
-        <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+        <img class="card-img-top" src="{{resultPet.url}}" width="10%" alt="Card image cap">
         <div class="card-body">
-          <h2 class="card-title">Nome do PET</h2>
+          <h2 class="card-title">Nome do PET: {{resultPet.nome}} </h2>
           <p class="card-text">
             <ul>
-              <li>Raça</li>
-              <li>Sexo</li>
-              <li>Tamanho</li>
-              <li>Idade</li>
-              <li>Cidade -- Estado -- CEP</li>
+              <li>Raça:{{resultPet.raca}}</li>
+              <li>Sexo:{{resultPet.sexo}}</li>
+              <li>Tamanho:{{resultPet.tamanho}}</li>
+              <li>Idade:{{resultPet.idade}}</li>
+              <li>Cidade:{{resultPet.cidade}}  -- Estado:{{resultPet.estado}} -- CEP:{{resultPet.cep}}</li>
             </ul>
           </p>
-          <a href="#" class="btn btn-primary">Adotar &rarr;</a>
+
+        <form action="/adoption" method="POST">
+
+            <input type="hidden" name="id_user"  value="{{resultPet.id_user}}">
+            <input type="hidden" name="id_pet"  value="{{resultPet.id}}">
+            {{#if isAdoption }}
+            <button type="submit"  class="btn btn-primary" disabled>Adotar</button>
+            {{else}}
+          <button type="submit"  class="btn btn-primary" >Adotar</button>
+          {{/if}}
+        </form>
         </div>
       </div>
     </div>

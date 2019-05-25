@@ -1,0 +1,25 @@
+ <div class="card" style="width: 18rem;margin: 5px;">
+  <img class="card-img-top" src="{{this.url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Nome: {{this.nome}}</h5>
+    <form action="/mypets" method="POST">
+
+    <input type="hidden" name="id"  value="{{this.id}}">
+      <div class="form-group col-md-12">
+          <label for="inputEmail4">Status: {{this.status}}</label>
+          <div class="form-group">
+            <select class="custom-select" name="status" id="status" required>
+              <option value="">Selecione um Status</option>
+              <option value="Adotado">Adotado</option>
+              <option value="Disponivel">Disponivel</option>
+              <option value="Em Andamento">Em Andamento</option>
+            </select>
+            <div class="invalid-feedback">Por favor, informe um tamanho válido.</div>
+          </div>
+
+        </div>
+         <button type="submit"  class="btn btn-primary">Alterar</button>
+
+    </form>
+  </div>
+</div>
