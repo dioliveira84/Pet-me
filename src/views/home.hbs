@@ -134,8 +134,12 @@
           Encontre um novo amigo hoje no seu tablet, laptop ou celular. Pesquisa inteligente de animais de estimação em
           milhares de abrigos em todo Brasil.</p>
         <p>
+          {{#if user}}
+
+          {{else}}
           <a href="/login" class="btn btn-primary my-2 custom">Logar</a>
           <a href="/signup" class="btn btn-secondary my-2 custom">Cadastrar</a>
+          {{/if}}
         </p>
       </div>
     </section>
