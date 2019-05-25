@@ -19,8 +19,9 @@ function getPet(pet){
         x.add(option);
         
       });
-     
-     
+    // alert("teste")
+     //window.location.href="http://localhost:3008/#result";
+
 })
 .catch(err => {
        console.log(err)
