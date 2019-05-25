@@ -110,9 +110,15 @@ app.get('/', async (req, res) => {
 });
 
 app.post('/', async (req, res) => {
+
+
+
   const { dog,cat} = req.body;
   const ufPet = req.body.pet;
   const user = req.user;
+  const usuario = req.user ? await user.usuario.charAt(0).toUpperCase()+ user.usuario.substring(1,user.usuario.length):'';
+ 
+  
   let resultPet = null;
   let filter = null;
 
@@ -165,7 +171,7 @@ app.post('/', async (req, res) => {
 
   }
 
-  res.render('home',{title:'Home',resultPet,user});
+  res.render('home',{title:'Home',resultPet,user,usuario});
 });
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
