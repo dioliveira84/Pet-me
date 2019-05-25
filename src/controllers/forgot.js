@@ -56,10 +56,10 @@ module.exports.resetPassword =  (req, res, next) => {
           var mailOptions = {
             to: user.email,
             subject: 'Altere sua senha',
-            text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
-              'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-              'http://' + req.headers.host + '/forgot/reset/' + token + '\n\n' +
-              'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+            text: 'Você está prestes a mudar sua senha.\n\n' +
+              'Por favor, clique no link abaixo para refazer sua senha. \n\n' +
+              'http://' + req.headers.host + '/forgot/reset/' + token + '\n\n' 
+              
           };
           envEmail.send(mailOptions.to,mailOptions.subject,mailOptions.text)
         }
@@ -103,13 +103,11 @@ module.exports.resetPassword =  (req, res, next) => {
           });
         },
         function(user, done) {
-       
-         console.log("user envio",user.email)
           var mailOptions = {
             to: user.email,
             subject: 'Sua senha foi alterada com sucesso !!',
-            text: 'Hello,\n\n' +
-              'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
+            text: 'Olá,\n\n' +
+              'A senha da conta:' + user.email + ' foi alterada com êxito.\n'
           };
 
 

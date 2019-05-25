@@ -79,6 +79,9 @@ const pet = new mongoose.Schema(
     url: {
       type: String,
     },
+    status:{
+      type: String,
+    }
   },
   {
     collection: 'pet',

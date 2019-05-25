@@ -103,10 +103,10 @@ app.get('/api', (req, res, next) => {
 
 app.get('/', async (req, res) => {
   const user = req.user;
+  const usuario = req.user ? await user.usuario.charAt(0).toUpperCase()+ user.usuario.substring(1,user.usuario.length):'';
   resultPet = await pet.find({})
 
-  
-  res.render('home',{title:'Home',resultPet,user});
+  res.render('home',{title:'Home',resultPet,user,usuario});
 });
 
 app.post('/', async (req, res) => {
@@ -143,8 +143,6 @@ app.post('/', async (req, res) => {
 
   }else{
 
-
-    
     if (dog && !cat){
     
       filter = {$and: [ { "tipo":dog}]}
@@ -155,7 +153,8 @@ app.post('/', async (req, res) => {
  
    }else if(dog && cat){
  
-     filter = {$and: [ { "tipo":dog},{ "tipo":cat}]}
+     console.log("aqui")
+     filter = {},{ $and: [ { "tipo":dog},{ "tipo":cat}]}
  
    }else{
  

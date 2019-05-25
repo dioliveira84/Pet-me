@@ -8,7 +8,12 @@
           <div class="col-md-12">
             <div class="jumbotron">
               <div class="container">
-                <h1 class="display-3">Pronto para um novo amigo?</h1>
+
+                {{#if user.usuario}}
+                <h6 class="display-4"> {{usuario}}, pronto para um novo amigo?</h6>
+                {{else}}
+                 <h6 class="display-4">Pronto para um novo amigo?</h6>
+                 {{/if}}
                 <div class="form-group">
                   <br>
                   <label for="exampleInputEmail1">Onde você está?</label>
