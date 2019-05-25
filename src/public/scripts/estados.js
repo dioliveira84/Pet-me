@@ -1,5 +1,5 @@
 const restCountriesApi = axios.create({
-    baseURL: 'http://localhost:3008/api/v1/estados/list'
+    baseURL: 'https://ironpet-me.herokuapp.com/api/v1/estados/list'
 });
 function getStates() {
 
