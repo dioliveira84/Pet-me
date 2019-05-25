@@ -1,0 +1,13 @@
+ <div class="card" style="width: 18rem;margin: 5px;">
+  <img class="card-img-top" src="{{this.url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Nome: {{this.nome}}</h5>
+     <h6 class="card-title">Status: {{this.status}}</h6>
+    <form action="/details" method="POST">
+
+    <input type="hidden" name="id"  value="{{this.id}}">
+    <button type="submit"  class="btn btn-primary">Detalhes</button>
+
+    </form>
+  </div>
+</div>

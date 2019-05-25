@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  {{!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --}}
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <title>{{title}}</title>
+
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #292b2c;
+  background-color: #eceeef;
+}
+
+h1,
+body,
+html,
+main section {
+  margin: 0;
+}
+
+.session-01 {
+  width: 100%;
+  height: 300px;
+  background-color: #f2f2f2;
+  margin: 0px 0px 5px 0px;
+}
+
+.session-02 {
+  width: 100%;
+  height: 250px;
+  background-color: #f2f2f2;
+  margin: 0px 0px 5px 0px;
+}
+
+.session-03 {
+  width: 100%;
+  height: 150px;
+  background-color: #f2f2f2;
+}
+
+.listPets {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 5px;
+}
+
+.center-notfound {
+  display: flex;
+  align-items: center;
+}
+
+.error-template {
+  margin-top: -400px;
+  margin-left: 400px;
+}
+
+.featurette-heading {
+  font-size: 4.5rem;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.form-control{
+  width: 100%;
+}
+
+.jumbotron {
+  margin-bottom: 0px;
+}
+
+.help {
+  background: white;
+}
+</style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="image/pet-house.png" width="45" height="45" alt="pet-logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/mission">Missão</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">Sobre nós</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/help">Fale conosco</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/ongs">ONGs</a>
+        </li>
+
+        {{#if user }}
+        <li class="nav-item">
+          <a class="nav-link" href="/pet">Cadatro de Pets</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="/mypets">Meus Pets</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/api/v1/logout/logout">Sair</a>
+        </li>
+
+        {{else}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Entrar
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/login">Logar</a>
+            <a class="dropdown-item" href="/signup">Cadastrar</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Precisa de Ajuda?</a>
+          </div>
+        </li>
+        {{/if}}
+      </ul>
+      <div class="form-inline my-2 my-lg-0">
+
+      
+
+      </div>
+
+    </div>
+  </nav>
+
+  {{{ body }}}
+
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text-muted">
+        <p>© 2019 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </span>
+
+    </div>
+  </footer>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/blip-chat-widget" type="text/javascript">
+</script>
+<script>
+  (function () {
+    window.onload = function () {
+      new BlipChat()
+        .withAppKey('cGV0bWU6MzM2NTFkNDQtZWNiZi00Nzg1LTk2NDAtYWVmMTY0YTA5MDA4')
+        .withButton({
+          "color": "#2CC3D5",
+          "icon": ""
+        })
+        .build();
+    }
+  })();
+</script>
+
+</html>

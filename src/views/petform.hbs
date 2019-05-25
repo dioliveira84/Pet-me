@@ -1,0 +1,153 @@
+<div class="container">
+  <section class="Session-04">
+    <br>
+    <h1>Cadastro de Pet</h1>
+    <br>
+    <form action="/api/v1/pet/create" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
+      <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">Tipo</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="tipo" id="gridRadios1" onchange="getPet('dog');" value="Cachorro" checked>
+              <label class="form-check-label" for="gridRadios1" >
+                Cachorro
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="tipo" onchange="getPet('cat');" id="gridRadios2" value="Gato">
+              <label class="form-check-label" for="gridRadios2" >
+                Gato
+              </label>
+            </div>
+            <div class="form-check disabled">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="opcao3" disabled>
+              <label class="form-check-label" for="gridRadios3">
+                Outros
+              </label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="form-row">
+
+          <div class="form-group col-md-6">
+          <label for="inputEmail4">Nome</label>
+          <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" required>
+          <div class="form-group">
+          
+            <div class="invalid-feedback">Por favor, informe uma raça válida</div>
+          </div>
+
+        </div>
+        <div class="form-group col-md-3">
+          <label for="inputEmail4">Raça</label>
+
+          <div class="form-group">
+            <select class="custom-select" name="raca" id="raca" required>
+              <option value="">Abra este menu select</option>
+               <option value="Labrador">Labrador</option>
+            </select>
+            <div class="invalid-feedback">Por favor, informe uma raça válida</div>
+          </div>
+
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="inputPassword4">Sexo</label>
+
+          <div class="form-group">
+            <select class="custom-select" name="sexo" id="sexo" required>
+              <option value="">Abra este menu select</option>
+              <option value="M">Macho</option>
+              <option value="F">Femea</option>
+            </select>
+            <div class="invalid-feedback">Por favor, informe um sexo válido.</div>
+          </div>
+
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Tamanho</label>
+          <div class="form-group">
+            <select class="custom-select" name="tamanho" id="tamanho" required>
+              <option value="">Abra este menu select</option>
+              <option value="Pequeno">Pequeno</option>
+              <option value="Médio">Médio</option>
+              <option value="Grande">Grande</option>
+            </select>
+            <div class="invalid-feedback">Por favor, informe um tamanho válido.</div>
+          </div>
+
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Idade</label>
+          <div class="form-group">
+            <input type="number" class="form-control" name="idade" id="idade" required>
+          
+            <div class="invalid-feedback">Por favor, informe uma idade válida.</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom03">Cidade</label>
+          <input type="text" name="cidade" class="form-control" id="cidade" placeholder="Cidade" required>
+          <div class="invalid-feedback">
+            Por favor, informe uma cidade válida.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationCustom04">Estado</label>
+          <input type="text" name="estado" class="form-control" id="estado" placeholder="Estado" required>
+          <input type="hidden" name="rua" class="form-control" id="rua" placeholder="Estado" required>
+          <div class="invalid-feedback">
+            Por favor, informe um estado válido.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationCustom05">CEP</label>
+          <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP" onblur="getCep(this);" required>
+          <div class="invalid-feedback">
+            Por favor, informe um CEP válido.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Anexar foto do Pet</label>
+        <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
+      </div>
+      <button class="btn btn-primary" type="submit">Enviar</button>
+    </form>
+    <br>
+
+    <script>
+      // Exemplo de JavaScript inicial para desativar envios de formulário, se houver campos inválidos.
+      (function () {
+
+        'use strict';
+        window.addEventListener('load', function () {
+          // Pega todos os formulários que nós queremos aplicar estilos de validação Bootstrap personalizados.
+          var forms = document.getElementsByClassName('needs-validation');
+          // Faz um loop neles e evita o envio
+          var validation = Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener('submit', function (event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+   
+  </section>
+</div>  
+ <script src="/scripts/viaCep.js"></script>
+   <script src="/scripts/listPets.js"></script>
+     <script >
+       getPet('dog');
+     </script>
