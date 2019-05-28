@@ -1,6 +1,3 @@
-
-
-
 <div class="container">
   <section class="Session-01">
     <br>
@@ -45,7 +42,7 @@
                 </div>
               </div>
             </div>
-  
+
             </form>
           </div>
         </div>
@@ -92,19 +89,19 @@
 
   <hr class="featurette-divider">
 
- <section id="result" class="Session-03">
-
-
-    <div class="listPets">
-<h1 class="jumbotron-heading">Resultado de sua pesquisa!</h1>
-<br>
-      {{#each resultPet}}
-
-      {{>petcard}}
-
-      {{/each}}
-    </div>
-
+  <section id="result" class="Session-03">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <br>
+        <h1 class="jumbotron-heading">Resultado da pesquisa</h1>
+        <br>
+        <div class="listPets">
+          {{#each resultPet}}
+          {{>petcard}}
+          {{/each}}
+        </div>
+      </div>
+    </section>
   </section>
 
   <hr class="featurette-divider">
@@ -186,7 +183,7 @@
 
 <script>
   getStates()
-  
+
   function typeWriter(elemento) {
     const textoArray = elemento.innerHTML.split('');
     elemento.innerHTML = '';
@@ -196,5 +193,4 @@
   }
   const titulo = document.querySelector('h6');
   typeWriter(titulo);
-
 </script>
