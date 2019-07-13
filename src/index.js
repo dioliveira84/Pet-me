@@ -109,6 +109,14 @@ app.get('/', async (req, res) => {
   res.render('home',{title:'Home',resultPet,user,usuario});
 });
 
+app.get('/regulamento', async (req, res) => {
+  const user = req.user;
+  const usuario = req.user ? await user.usuario.charAt(0).toUpperCase()+ user.usuario.substring(1,user.usuario.length):'';
+  resultPet = await pet.find({})
+
+  res.status(200).json({user:user,name:usuario});
+  
+});
 app.post('/', async (req, res) => {
 
 
