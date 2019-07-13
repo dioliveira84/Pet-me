@@ -12,4 +12,6 @@ router.route('/list').get(controller.listEstados);
 router.route('/update').post(controller.updatetEstados);
 router.route('/delete/:id').post(controller.updatetEstados);
 
+
+
 module.exports = router;
