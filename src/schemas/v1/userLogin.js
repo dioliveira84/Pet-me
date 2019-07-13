@@ -16,6 +16,14 @@ let userLogin = new mongoose.Schema({
         required: true,
        
     },
+    area:{
+       type:String,
+       required:true
+    },
+    perfil:{
+      type:String,
+      required:true
+    },
     phone: {
         type: String,
         required: false,
