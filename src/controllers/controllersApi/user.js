@@ -14,16 +14,6 @@ module.exports.createUser =   (req, res, next) => {
 
    const { usuario, password,cidade,email} = req.body;
    let errors = [];
- 
-  //  if (!usuario || !password || !email || !endereco || !phone) {
-  //    errors.push({ msg: 'Please enter all fields' });
-  //  }
- 
-  //  if (errors.length > 0) {
-  //    res.send( {
-  //      errors
-  //    });
-  //  } else {
   
     userLogin.findOne({ "email": email })
     .then(user => {
