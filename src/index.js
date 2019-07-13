@@ -107,7 +107,7 @@ app.get('/', async (req, res) => {
   resultPet = await pet.find({})
 
  // res.render('home',{title:'Home',resultPet,user,usuario});
-  res.status(200).json({user:user,name:usuario});
+  res.status(200).json({userr:user,name:usuario});
 });
 
 app.get('/regulamento', async (req, res) => {
