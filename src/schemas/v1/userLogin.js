@@ -24,16 +24,6 @@ let userLogin = new mongoose.Schema({
       type:String,
       required:true
     },
-    phone: {
-        type: String,
-        required: false,
-        index: true
-    },
-    cidade: {
-        type: String,
-        required: true,
-        index: true
-    },
     email: {
         type: String,
         required: true,
