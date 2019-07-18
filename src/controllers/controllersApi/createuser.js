@@ -30,24 +30,22 @@ module.exports.authenticate = async (req, res, next)=>{
 
     console.log(md5(req.body.password + SALT_KEY));
 
-    console.log(req.body)
-      
+   
+   
     userLogin.findOne({
         email:req.body.email,
         password: md5(req.body.password + SALT_KEY)
     }).then(async data =>{ 
-
        const token = await authService.generationToken({id:data.id,email:data.email,usuario:data.usuario});
 
         res.status(200).json({
-
             token:token,
+            
             data:{
                 email:data.email,
-                usuario:data.usuario
-
+                usuario:data.usuario,
+                id:data.id
             }
-
         })   
 
        }).catch(e=>{

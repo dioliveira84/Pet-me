@@ -9,8 +9,9 @@ const multer = require('multer');
 //multer(multerConfig).single('file')
 
 const configAuth = require('../../../config/auth');
+const authServiceJwt = require('../../../config/authJwt')
 
-router.route('/create').post(configAuth.ensureAuthenticated, controller.createProblem);
+router.route('/create').post(authServiceJwt.authorize, controller.createProblem);
 router.route('/list').get(controller.listProblem);
 //router.route('/update').post(configAuth.ensureAuthenticated,controller.updatetPet);
 //router.route('/delete/:id').post(configAuth.ensureAuthenticated,controller.deletetPet);
