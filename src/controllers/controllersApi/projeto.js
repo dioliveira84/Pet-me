@@ -3,9 +3,11 @@ const projeto = require('../../models/v1/projeto');
 
 module.exports.createProjeto = async (req, res) => {
 
-  const id = req.user.id;
+  //const id = req.user.id;
 
- const {titulo,descricao,status,prazo,valor} = req.body
+ const {id_user,titulo,descricao,status,prazo,valor} = req.body
+
+ console.log(req.body)
 
 
  try{
@@ -15,7 +17,7 @@ module.exports.createProjeto = async (req, res) => {
      status,
      valor,
      prazo,
-    id_user: id
+     id_user
 
   })
   res.status(201).json({message:'sucesso',data:projetoDB});
