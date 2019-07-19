@@ -106,8 +106,8 @@ app.get('/', async (req, res) => {
   const usuario = req.user ? await user.usuario.charAt(0).toUpperCase()+ user.usuario.substring(1,user.usuario.length):'';
   resultPet = await pet.find({})
 
- // res.render('home',{title:'Home',resultPet,user,usuario});
-  res.status(200).json({userr:user,name:usuario});
+ res.render('home',{title:'Home',resultPet,user,usuario});
+ // res.status(200).json({userr:user,name:usuario});
 });
 
 app.get('/regulamento', async (req, res) => {

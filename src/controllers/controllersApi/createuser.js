@@ -17,7 +17,7 @@ module.exports.createJwt= async (req, res) => {
     .then(() => {
           
        
-        res.status(200).json({ message:'Cliente cadastrado com sucesso',customer:customer});
+        res.status(202).json({ message:'Cliente cadastrado com sucesso',customer:customer});
 
       })
       .catch(error => {
@@ -39,18 +39,19 @@ module.exports.authenticate = async (req, res, next)=>{
        const token = await authService.generationToken({id:data.id,email:data.email,usuario:data.usuario});
 
         res.status(200).json({
+        
             token:token,
-            
+
             data:{
                 email:data.email,
                 usuario:data.usuario,
-                id:data.id
+                id:data,
+                
             }
         })   
 
-       }).catch(e=>{
-
-            res.status(400).send(e)
+       }).catch(error=>{
+            res.status(400).json({message:error})
         })
 
 }

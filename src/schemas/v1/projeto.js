@@ -32,6 +32,11 @@ let projeto = new mongoose.Schema({
     valor:{
       type:String,
       required:true
+    },
+    dt_update :{
+      
+      type: Date,
+      default: Date.now
     }
     
 }, { collection: 'projeto' });

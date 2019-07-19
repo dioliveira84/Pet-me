@@ -48,8 +48,26 @@ module.exports.listProjeto = async (req, res, next) => {
   
   
 };
-module.exports.updatetPet = (req, res, next) => {
-  res.send('Atualizar Pet');
+module.exports.updatetProject =  (req, res, next) => {
+
+   const {id_projeto,titulo,descricao,status} = req.body
+
+     let update ={titulo:titulo,descricao:descricao,status:status}
+  
+      projeto.findOneAndUpdate({_id:id_projeto}, update,{ new: true })
+      .then(doc=>{
+
+        res.status(202).json({message:'Atualizado com sucesso',data:doc});
+
+      })
+      .catch(error=>{
+
+        res.status(401).json({message:'nao autorizado',status:401});
+      })
+
+  
+
+
 };
 
 module.exports.massivo = (req, res, next) => {
