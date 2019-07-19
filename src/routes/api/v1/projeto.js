@@ -10,9 +10,11 @@ const multer = require('multer');
 
 const configAuth = require('../../../config/auth');
 const authServiceJwt = require('../../../config/authJwt')
+
+
 router.route('/create').post(authServiceJwt.authorize, controller.createProjeto);
 router.route('/list').get(controller.listProjeto);
-//router.route('/update').post(configAuth.ensureAuthenticated,controller.updatetPet);
+router.route('/update').put(authServiceJwt.authorize,controller.updatetProject);
 //router.route('/delete/:id').post(configAuth.ensureAuthenticated,controller.deletetPet);
 //router.route('/massivo').post(configAuth.ensureAuthenticated,controller.massivo);
 module.exports = router;
