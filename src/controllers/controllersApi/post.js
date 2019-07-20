@@ -11,14 +11,13 @@ module.exports.createFile= async (req, res) => {
 
 
 
- const {
-    filename, size, key, location: url = '',
-  } = req.file;
+  const { originalname,size, key, location: url = "" } = req.file;
+
 
  const {id_user,id_projeto,status} = req.body
 
   const post = await anexo.create({
-    name,
+    name:originalname,
     size,
     key,
     url,
