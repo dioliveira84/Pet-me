@@ -10,7 +10,7 @@ module.exports.createFile= async (req, res) => {
   console.log(req.file)
 
 
-  
+
  const {
     originalname: name, size, key, location: url = '',
   } = req.file;
@@ -24,26 +24,19 @@ module.exports.createFile= async (req, res) => {
     url,
     id_user,
     id_projeto,
-    status
+    status  
 
   })
 
   res.status(202).json({message:"anexo enviado com sucesso",data:post,status:202})
 };
 
-module.exports.listPet = async (req, res, next) => {
-  const filterPet = req.query.pet;
+module.exports.listAnexo = async (req, res, next) => {
+  //const filterPet = req.query.pet;
 
-  console.log(filterPet)
-
-
-  if (filterPet=="dog"){
-    const resultPet = await dogss.find({});
-    res.send(resultPet);
-  }else{
-    const resultPet = await cats.find({});
-    res.send(resultPet);
-  }
+    const resulProject = await anexo.find({});
+    res.status(200).json(resulProject);
+ 
 };
 module.exports.updatetPet = (req, res, next) => {
   res.send('Atualizar Pet');
