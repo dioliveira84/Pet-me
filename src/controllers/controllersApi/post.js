@@ -20,7 +20,10 @@ module.exports.createFile= async (req, res) => {
     name:originalname,
     size,
     key,
-    url
+    url,
+    id_user,
+    id_projeto,
+    status  
 
   })
 
