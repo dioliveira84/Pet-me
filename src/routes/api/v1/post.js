@@ -12,6 +12,6 @@ const authServiceJwt = require('../../../config/authJwt')
 
 
 router.route('/file').post(multer(multerConfig).single('file'), controller.createFile);
-router.route('/list').get(controller.listPet);
+router.route('/list').get(controller.listAnexo);
 
 module.exports = router;
