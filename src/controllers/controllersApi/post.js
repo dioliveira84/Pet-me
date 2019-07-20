@@ -12,7 +12,7 @@ module.exports.createFile= async (req, res) => {
 
 
  const {
-    originalname: name, size, key, location: url = '',
+    filename, size, key, location: url = '',
   } = req.file;
 
  const {id_user,id_projeto,status} = req.body
