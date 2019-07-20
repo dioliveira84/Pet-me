@@ -43,7 +43,9 @@ module.exports = {
     fileSize: 2 * 1024 * 1024,
   },
   fileFilter: (req, file, cb) => {
-    const allowedMimes = ['image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
+    const allowedMimes = ['application/vnd.ms-excel','application/vnd.ms-powerpoint',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'text/html','application/msword','text/csv','text/plain','application/pdf','application/zip','image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
 
     if (allowedMimes.includes(file.mimetype)) {
       cb(null, true);
