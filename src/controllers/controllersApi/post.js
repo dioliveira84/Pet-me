@@ -50,11 +50,11 @@ module.exports.massivo = (req, res, next) => {
   dogs.forEach(element => { cachorro.create(element)});
 };
 
-module.exports.deletetPet = async (req, res, next) => {
-  const post = await Post.findById(req.params.id);
+module.exports.deleteAnexo = async (req, res, next) => {
+
+
+  const post = await anexo.findById(req.params.id);
 
   await post.remove();
-
-  return res.send();
-  res.send('Deletar Pet');
+  res.status(200).json({message:"deletado"});
 };
