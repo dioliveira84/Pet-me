@@ -57,10 +57,13 @@ module.exports.resetPassword =  (req, res, next) => {
             subject: 'Altere sua senha',
             text: 'Você está prestes a mudar sua senha.\n\n' +
               'Por favor, clique no link abaixo para refazer sua senha. \n\n' +
-              'http://' + req.headers.host + '/forgot/reset/' + token + '\n\n' 
+              'https://bigbets.stackblitz.io/forgotbigbets/reset/' + token + '\n\n' 
               
           };
           envEmail.send(mailOptions.to,mailOptions.subject,mailOptions.text)
+
+
+         
         }
       ], function(err) {
         if (err) return next(err);
@@ -110,7 +113,7 @@ module.exports.resetPassword =  (req, res, next) => {
           };
 
 
-          envEmail.send(mailOptions.to,mailOptions.subject,mailOptions.text)
+         envEmail.send(mailOptions.to,mailOptions.subject,mailOptions.text)
 
 
         }

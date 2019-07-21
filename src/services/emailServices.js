@@ -6,11 +6,12 @@ exports.send =  async (to,subject,body) =>{
 
     const msg = {
         to: to,
-        from:'petme@gmail.com',
+        from:'bigbets@gmail.com',
         subject: subject,
         html: body,
       };
 
+       console.log(msg)
 
       sgMail.send(msg);
 }
