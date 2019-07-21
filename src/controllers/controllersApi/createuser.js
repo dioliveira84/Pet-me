@@ -46,6 +46,7 @@ module.exports.authenticate = async (req, res, next)=>{
                 email:data.email,
                 usuario:data.usuario,
                 id:data.id,
+                perfil:data.perfil
                 
             }
         })   
