@@ -36,7 +36,7 @@ module.exports.authenticate = async (req, res, next)=>{
         email:req.body.email,
         password: md5(req.body.password + SALT_KEY)
     }).then(async data =>{ 
-       const token = await authService.generationToken({id:data.id,email:data.email,usuario:data.usuario});
+       const token = await authService.generationToken({id:data.id,email:data.email,usuario:data.usuario,perfil:data.perfil});
 
         res.status(200).json({
         
