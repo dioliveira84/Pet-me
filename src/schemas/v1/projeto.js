@@ -33,6 +33,9 @@ let projeto = new mongoose.Schema({
       type:String,
       required:true
     },
+    comite:{
+      type:Boolean
+    },
     dt_update :{
       
       type: Date,

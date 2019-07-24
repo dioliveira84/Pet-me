@@ -21,6 +21,13 @@ let cadastro = new mongoose.Schema({
       type:String,
       required:true
     },
+    descricao:{
+      type:String,
+      required:true
+    },
+     comite:{
+      type:Boolean
+    },
     status:{
       type:String,
       required:true
