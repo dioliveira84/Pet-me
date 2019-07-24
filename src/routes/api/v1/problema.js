@@ -11,8 +11,6 @@ const multer = require('multer');
 
 const authServiceJwt = require('../../../config/authJwt')
 
-
-
 router.route('/create').post(authServiceJwt.authorize,controller.createProblem);
 router.route('/list').get(controller.listProblem);
 //router.route('/update').post(configAuth.ensureAuthenticated,controller.updatetPet);
