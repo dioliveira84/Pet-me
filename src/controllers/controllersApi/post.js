@@ -31,9 +31,8 @@ module.exports.createFile= async (req, res) => {
 };
 
 module.exports.listAnexo = async (req, res, next) => {
-  //const filterPet = req.query.pet;
-
-    const resulProject = await anexo.find({});
+  
+    const resulProject = await anexo.find({id_projeto:req.params.id});
     res.status(200).json(resulProject);
  
 };
