@@ -35,7 +35,7 @@ module.exports.listProjeto = async (req, res, next) => {
 
   try {
     
-    const resultProjeto = await projeto.find({comite:false});
+    const resultProjeto = await projeto.find({comite:true});
 
     res.status(200).json({status:200,data:resultProjeto})
 
