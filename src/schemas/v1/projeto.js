@@ -21,20 +21,25 @@ let projeto = new mongoose.Schema({
       type:String,
       required:true
     },
-    status:{
+    etapa:{
       type:String,
       required:true
     },
     prazo:{
       type:String,
-      required:true
+     
     },
     valor:{
       type:String,
-      required:true
+    
     },
     comite:{
       type:Boolean
+    },
+    iniciativa:{
+    
+      type:String,
+      required:true
     },
     dt_update :{
       
