@@ -5,19 +5,20 @@ module.exports.createProjeto = async (req, res) => {
 
   //const id = req.user.id;
 
- const {id_user,titulo,descricao,status,prazo,valor} = req.body
+ const {id_user,descricao,etapa,iniciativa,titulo,comite} = req.body
 
  console.log(req.body)
 
 
  try{
   const projetoDB = await projeto.create({
+
+    iniciativa,
      titulo,
      descricao,
-     status,
-     valor,
-     prazo,
-     id_user
+     etapa,
+     id_user,
+     comite
 
   })
   res.status(201).json({message:'sucesso',data:projetoDB});
@@ -34,7 +35,7 @@ module.exports.listProjeto = async (req, res, next) => {
 
   try {
     
-    const resultProjeto = await projeto.find({comite:true});
+    const resultProjeto = await projeto.find({comite:false});
 
     res.status(200).json({status:200,data:resultProjeto})
 
