@@ -73,8 +73,9 @@ module.exports.updatetProject =  (req, res, next) => {
 
     let update ={comite:comite}
 
-     projeto.findOneAndUpdate({_id:id_projeto}, update,{ new: true })
-     
+  
+     projeto.findOneAndUpdate(id_projeto, update,{ new: true })
+
      .then(doc=>{
   
        res.status(202).json({message:'Atualizado com sucesso',data:doc});
