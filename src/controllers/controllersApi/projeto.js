@@ -34,7 +34,7 @@ module.exports.listProjeto = async (req, res, next) => {
 
   try {
     
-    const resultProjeto = await projeto.find({});
+    const resultProjeto = await projeto.find({comite:true});
 
     res.status(200).json({status:200,data:resultProjeto})
 
@@ -50,9 +50,9 @@ module.exports.listProjeto = async (req, res, next) => {
 };
 module.exports.updatetProject =  (req, res, next) => {
 
-   const {id_projeto,titulo,descricao,status} = req.body
+   const {id_projeto,titulo,descricao,status,comite} = req.body
 
-     let update ={titulo:titulo,descricao:descricao,status:status}
+     let update ={titulo:titulo,descricao:descricao,status:status,comite:comite}
   
       projeto.findOneAndUpdate({_id:id_projeto}, update,{ new: true })
       .then(doc=>{
@@ -79,10 +79,10 @@ module.exports.massivo = (req, res, next) => {
 };
 
 module.exports.deletetPet = async (req, res, next) => {
-  const post = await Post.findById(req.params.id);
+  const post = await projeto.findById(req.params.id);
 
   await post.remove();
 
   return res.send();
-  res.send('Deletar Pet');
+
 };
