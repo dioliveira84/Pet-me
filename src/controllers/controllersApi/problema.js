@@ -3,12 +3,7 @@ const cadastro = require('../../models/v1/cadastro');
 
 module.exports.createProblem = async (req, res) => {
 
-  const id = req.user.id;
- //const {
-   // originalname: name, size, key, location: url = '',
- // } = req.file;
-
- const {area,iniciativa,status} = req.body
+ const {area,iniciativa,status,perfil,id_user,descricao,comite} = req.body
 
 
  try{
@@ -16,7 +11,11 @@ module.exports.createProblem = async (req, res) => {
      area,
      iniciativa,
      status,
-    id_user: id
+     perfil,
+     id_user,
+     descricao,
+     comite
+
 
   })
   res.status(201).json({message:'sucesso',data:cadastroDB});
