@@ -13,7 +13,8 @@ const authServiceJwt = require('../../../config/authJwt')
 
 router.route('/create').post(authServiceJwt.authorize,controller.createProblem);
 router.route('/list').get(controller.listProblem);
+router.route('comite/list').get(controller.listProblem);
 //router.route('/update').post(configAuth.ensureAuthenticated,controller.updatetPet);
-//router.route('/delete/:id').post(configAuth.ensureAuthenticated,controller.deletetPet);
+router.route('/delete/:id').delete(authServiceJwt.authorize,controller.deletetPet);
 //router.route('/massivo').post(configAuth.ensureAuthenticated,controller.massivo);
 module.exports = router;
