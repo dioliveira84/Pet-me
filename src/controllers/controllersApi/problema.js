@@ -70,11 +70,15 @@ module.exports.listProblemComite = async (req, res, next) => {
 
 module.exports.updateComite = async (req, res, next) => {
 
+  const {id_projeto} = req.body
+  let update ={comite:true}
+
   
-  const resultCadastro = await cadastro.find({comite:true})
+   await cadastro.findOneAndUpdate(id_projeto, update,{ new: true })
+
   .then(doc=>{
 
-    res.status(202).json({message:'Atualizado com sucesso',data:resultCadastro});
+    res.status(202).json({message:'Atualizado com sucesso',data:doc});
 
   })
   .catch(error=>{
