@@ -74,7 +74,6 @@ module.exports.updatetProject =  (req, res, next) => {
    const {id_projeto,titulo,descricao,status,comite,peso} = req.body
 
 
-   if(!peso){
 
      let update ={titulo:titulo,descricao:descricao,status:status,comite:comite}
   
@@ -89,28 +88,24 @@ module.exports.updatetProject =  (req, res, next) => {
         res.status(401).json({message:'nao autorizado',status:401});
       })
 
-   }else{
+};
 
-    let update ={comite:comite}
+module.exports.updatetProjectComite =  (req, res, next) => {
 
-  
-     projeto.findOneAndUpdate(id_projeto, update,{ new: true })
+  const {id_projeto} = req.body
 
+    let update ={comite:true}
+ 
+     projeto.findOneAndUpdate({_id:id_projeto}, update,{ new: true })
      .then(doc=>{
-  
+ 
        res.status(202).json({message:'Atualizado com sucesso',data:doc});
-  
+ 
      })
      .catch(error=>{
-  
+ 
        res.status(401).json({message:'nao autorizado',status:401});
      })
-   }
-
-
-
-  
-
 
 };
 
