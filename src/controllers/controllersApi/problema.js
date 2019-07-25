@@ -71,7 +71,7 @@ module.exports.listProblemComite = async (req, res, next) => {
 module.exports.updateComite = async (req, res, next) => {
 
   
-  const resultCadastro = await cadastro.find({comite:true},{ new: true })
+  const resultCadastro = await cadastro.find({comite:true})
   .then(doc=>{
 
     res.status(202).json({message:'Atualizado com sucesso',data:resultCadastro});
@@ -99,3 +99,4 @@ module.exports.deletetPet = async (req, res, next) => {
   return res.send();
 
 };
+
