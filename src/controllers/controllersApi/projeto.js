@@ -49,6 +49,26 @@ module.exports.listProjeto = async (req, res, next) => {
   
   
 };
+module.exports.listProjetoComite = async (req, res, next) => {
+
+
+  try {
+    
+    const resultProjeto = await projeto.find({comite:false});
+
+    res.status(200).json({status:200,data:resultProjeto})
+
+  } catch (error) {
+
+    res.status(400).json({status:400,message:"erro ao listar as iniciativas"})
+    
+  }
+
+      
+  
+  
+};
+
 module.exports.updatetProject =  (req, res, next) => {
 
    const {id_projeto,titulo,descricao,status,comite,peso} = req.body
