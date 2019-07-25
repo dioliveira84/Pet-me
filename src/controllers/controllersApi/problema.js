@@ -74,7 +74,7 @@ module.exports.updateComite = async (req, res, next) => {
   let update ={comite:true}
 
   
-   await cadastro.findOneAndUpdate(id_projeto, update,{ new: true })
+   await cadastro.findOneAndUpdate({id_projeto:id_projeto}, update,{ new: true })
 
   .then(doc=>{
 
