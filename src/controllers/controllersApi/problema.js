@@ -32,7 +32,7 @@ module.exports.listProblem = async (req, res, next) => {
 
   try {
     
-    const resultCadastro = await cadastro.find({});
+    const resultCadastro = await cadastro.find({comite:true});
 
     res.status(200).json({status:200,data:resultCadastro})
 
