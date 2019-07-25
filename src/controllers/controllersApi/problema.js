@@ -46,6 +46,27 @@ module.exports.listProblem = async (req, res, next) => {
   
   
 };
+
+module.exports.listProblemComite = async (req, res, next) => {
+
+
+  try {
+    
+    const resultCadastro = await cadastro.find({comite:false});
+
+    res.status(200).json({status:200,data:resultCadastro})
+
+  } catch (error) {
+
+    res.status(400).json({status:400,message:"erro ao listar as iniciativas"})
+    
+  }
+
+      
+  
+  
+};
+
 module.exports.updatetPet = (req, res, next) => {
   res.send('Atualizar Pet');
 };
