@@ -60,6 +60,7 @@ module.exports.listProblemComite = async (req, res, next) => {
 
     res.status(400).json({status:400,message:"erro ao listar as iniciativas"})
     
+
   }
 
       
@@ -67,8 +68,19 @@ module.exports.listProblemComite = async (req, res, next) => {
   
 };
 
-module.exports.updatetPet = (req, res, next) => {
-  res.send('Atualizar Pet');
+module.exports.updateComite = async (req, res, next) => {
+
+  
+  const resultCadastro = await cadastro.find({comite:true},{ new: true })
+  .then(doc=>{
+
+    res.status(202).json({message:'Atualizado com sucesso',data:resultCadastro});
+
+  })
+  .catch(error=>{
+
+    res.status(401).json({message:'nao autorizado',status:401});
+  })
 };
 
 module.exports.massivo = (req, res, next) => {

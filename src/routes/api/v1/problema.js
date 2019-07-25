@@ -14,7 +14,7 @@ const authServiceJwt = require('../../../config/authJwt')
 router.route('/create').post(authServiceJwt.authorize,controller.createProblem);
 router.route('/list').get(controller.listProblem);
 router.route('/comite/list').get(controller.listProblemComite);
-//router.route('/update').post(configAuth.ensureAuthenticated,controller.updatetPet);
+router.route('/update').post(authServiceJwt.authorize,controller.updateComite);
 router.route('/delete/:id').delete(authServiceJwt.authorize,controller.deletetPet);
 //router.route('/massivo').post(configAuth.ensureAuthenticated,controller.massivo);
 module.exports = router;
