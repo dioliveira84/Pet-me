@@ -91,11 +91,11 @@ module.exports.listMyProject = async (req, res, next) => {
 
 module.exports.updatetProject =  (req, res, next) => {
 
-   const {id_projeto,titulo,descricao,status,comite,peso} = req.body
+   const {id_projeto,descricao,etapa} = req.body
 
 
 
-     let update ={titulo:titulo,descricao:descricao,status:status,comite:comite}
+     let update ={descricao:descricao,etapa:etapa}
   
       projeto.findOneAndUpdate({_id:id_projeto}, update,{ new: true })
       .then(doc=>{
