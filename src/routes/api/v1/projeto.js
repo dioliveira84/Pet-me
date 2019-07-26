@@ -15,6 +15,7 @@ const authServiceJwt = require('../../../config/authJwt')
 router.route('/create').post(authServiceJwt.authorize, controller.createProjeto);
 router.route('/list').get(controller.listProjeto);
 router.route('/comite/list').get(controller.listProjetoComite);
+router.route('/list/:id').get(controller.listMyProject);
 router.route('/update').put(authServiceJwt.authorize,controller.updatetProject);
 router.route('/comite/update').put(authServiceJwt.authorize,controller.updatetProjectComite);
 router.route('/delete/:id').delete(authServiceJwt.authorize,controller.deletetPet);
