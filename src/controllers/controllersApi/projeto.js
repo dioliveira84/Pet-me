@@ -75,7 +75,7 @@ module.exports.listMyProject = async (req, res, next) => {
 
   try {
     
-    const resultProjeto = await projeto.find({$and:[{id_user:req.params.id},{hasAprovad:false}]});
+    const resultProjeto = await projeto.find({$and:[{id_user:req.params.id},{comite:true}]});
 
     res.status(200).json({status:200,data:resultProjeto})
 
