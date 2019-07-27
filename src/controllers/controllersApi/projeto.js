@@ -5,7 +5,7 @@ module.exports.createProjeto = async (req, res) => {
 
   //const id = req.user.id;
 
- const {id_user,descricao,etapa,iniciativa,titulo,comite} = req.body
+ const {id_user,descricao,etapa,iniciativa,titulo,comite,id_projeto} = req.body
 
  console.log(req.body)
 
@@ -18,7 +18,8 @@ module.exports.createProjeto = async (req, res) => {
      descricao,
      etapa,
      id_user,
-     comite
+     comite,
+     id_projeto
 
   })
   res.status(201).json({message:'sucesso',data:projetoDB});
