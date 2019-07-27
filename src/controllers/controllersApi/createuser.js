@@ -52,7 +52,7 @@ module.exports.authenticate = async (req, res, next)=>{
         })   
 
        }).catch(error=>{
-            res.status(400).json({message:error})
+            res.status(400).json({status:400})
         })
 
 }
