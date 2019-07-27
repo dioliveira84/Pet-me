@@ -14,7 +14,8 @@ module.exports.createProblem = async (req, res) => {
      perfil,
      id_user,
      descricao,
-     comite
+     comite,
+     hasAprovad:true
 
 
   })

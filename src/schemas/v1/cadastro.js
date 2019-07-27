@@ -29,6 +29,9 @@ let cadastro = new mongoose.Schema({
       type:Boolean,
       index:true
     },
+    hasAprovad:{
+      type:Boolean
+    },
     status:{
       type:String,
       required:true
