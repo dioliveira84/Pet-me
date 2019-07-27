@@ -80,14 +80,12 @@ module.exports.resetPassword =  (req, res, next) => {
 
  module.exports.setNewPassWord = (req,res,next) => {
   const SALT_KEY ='f5b99242-6504-4ca3-90f2-05e78e5761ef';
-
-
     async.waterfall([
         function(done) {
             userLogin.findOne({ "resetPasswordToken": req.body.token, "resetPasswordExpires": { $gt: Date.now() } }, function(err, user) {
             if (!user) {
               req.flash('error', 'Password reset token is invalid or has expired.');
-              return res.redirect('back');
+              return res.status(400);
             }
     
             const salt     = bcrypt.genSaltSync(bcryptSalt);
@@ -100,8 +98,7 @@ module.exports.resetPassword =  (req, res, next) => {
     
             
             user.save(function(err) {
-    
-              console.log(user)
+  
               done(err, user);
               
             });
@@ -121,8 +118,8 @@ module.exports.resetPassword =  (req, res, next) => {
 
         }
       ], function(err) {
-        res.redirect('/login');
+        res.status(400).json({message:err})
       });
-      res.redirect('/login');
+      res.status(200).json({message:"alterado com sucesso"})
 
  }
