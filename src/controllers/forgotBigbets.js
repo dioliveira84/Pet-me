@@ -4,6 +4,7 @@ const userLogin = require('../models/v1/userLogin');
 const envEmail = require('../services/emailServices');
 const async = require('async');
 const bcrypt = require('bcrypt');
+const md5 = require('md5');
 const bcryptSalt     = 10;
 
 
@@ -78,6 +79,8 @@ module.exports.resetPassword =  (req, res, next) => {
  }
 
  module.exports.setNewPassWord = (req,res,next) => {
+  const SALT_KEY ='f5b99242-6504-4ca3-90f2-05e78e5761ef';
+
 
     async.waterfall([
         function(done) {
@@ -88,7 +91,7 @@ module.exports.resetPassword =  (req, res, next) => {
             }
     
             const salt     = bcrypt.genSaltSync(bcryptSalt);
-            const hashPass = bcrypt.hashSync(req.body.password, salt);
+            const hashPass = md5(req.body.password + SALT_KEY)
 
             
             user.password = hashPass;
