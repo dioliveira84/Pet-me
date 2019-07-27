@@ -8,4 +8,4 @@ router.route('/').get(controller.renderForgot);
 router.route('/').post(controller.resetPassword);
 router.route('/reset').post(controller.setNewPassWord);
 router.route('/reset/:token').get(controller.renderReset);
-module.exports = router;
+module.exports = router;  
