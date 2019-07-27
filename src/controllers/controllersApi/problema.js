@@ -15,7 +15,7 @@ module.exports.createProblem = async (req, res) => {
      id_user,
      descricao,
      comite,
-     hasAprovad:true
+     hasAprovad:false
 
 
   })
@@ -33,7 +33,7 @@ module.exports.listProblem = async (req, res, next) => {
 
   try {
     
-    const resultCadastro = await cadastro.find({$and:[{comite:true},{hasAprovad:true}]});
+    const resultCadastro = await cadastro.find({comite:true});
 
     res.status(200).json({status:200,data:resultCadastro})
 
