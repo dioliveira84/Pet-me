@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const controller = require('../controllers/forgotBigbets');
+const controller = require('../../../controllers/forgotBigbets');
 
 let router = express.Router();
 router.route('/').get(controller.renderForgot);

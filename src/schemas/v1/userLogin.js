@@ -18,11 +18,11 @@ let userLogin = new mongoose.Schema({
     },
     area:{
        type:String,
-       required:true
+       required:false
     },
     perfil:{
       type:String,
-      required:true
+      required:false
     },
     email: {
         type: String,
