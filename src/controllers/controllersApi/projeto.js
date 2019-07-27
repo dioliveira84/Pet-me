@@ -96,16 +96,12 @@ module.exports.updatetProject =  (req, res, next) => {
 
 
      let update ={descricao:descricao,etapa:etapa}
-     let updateCadastro ={hasAprovad:false}
+  
       projeto.findOneAndUpdate({_id:id_projeto}, update,{ new: true })
       .then(doc=>{
 
-        cadastro.findByIdAndUpdate({_id:id_projeto}, updateCadastro,{ new: true }).then(res=>{
-
           res.status(202).json({message:'Atualizado com sucesso',data:doc});
-
-        }).catch(err=>{ })
-  
+      
       })
       .catch(error=>{
   
