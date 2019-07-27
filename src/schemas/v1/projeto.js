@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 let projeto = new mongoose.Schema({
-  
+
     dt_cadastro: {
         index: true,
         type: Date,
@@ -39,6 +39,10 @@ let projeto = new mongoose.Schema({
     },
     iniciativa:{
     
+      type:String,
+      required:true
+    },
+    id_problema:{
       type:String,
       required:true
     },

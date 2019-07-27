@@ -33,7 +33,7 @@ module.exports.listProblem = async (req, res, next) => {
 
   try {
     
-    const resultCadastro = await cadastro.find({comite:true});
+    const resultCadastro = await cadastro.find({$and:[{comite:true},{hasAprovad:true}]});
 
     res.status(200).json({status:200,data:resultCadastro})
 
@@ -72,7 +72,7 @@ module.exports.listProblemComite = async (req, res, next) => {
 module.exports.updateComite = async (req, res, next) => {
 
   const {id_projeto} = req.body
-  let update ={comite:true}
+  let update ={comite:true,hasAprovad:false}
 
   
    await cadastro.findOneAndUpdate({_id:id_projeto}, update,{ new: true })
